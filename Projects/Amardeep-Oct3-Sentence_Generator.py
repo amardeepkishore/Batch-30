@@ -35,8 +35,7 @@ def genrator():
 
     adlist_f = adlist()
     mf_f = mf()
-    Wlist = [[mf_f],Vlist,Olist,Clist,[adlist_f],Vlist,Olist]
-
+    Wlist = [[mf_f.capitalize()],Vlist,Olist,Clist,[adlist_f.capitalize()],Vlist,Olist]
     Genrator = [random.choice(Iteration) for Iteration in Wlist]
 
     if mf_f in Mlist and adlist_f == 'he':
@@ -55,7 +54,7 @@ def genrator():
         return ' '.join(Genrator)
 
     else:
-        print("Hilarious sentance, isn't it, press return to find more...\n")
+        print("Hilarious sentance, isn't it, '{}' is not '{}' right, press return to find more...\n".format(mf_f.upper(),adlist_f.upper()))
         return ' '.join(Genrator)
 
 if __name__ == '__main__':
