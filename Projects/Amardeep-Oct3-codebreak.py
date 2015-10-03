@@ -22,25 +22,26 @@ def string_dec(a):
         hashtable[ord(i)] = j
     return a.translate(hashtable)
 
-print(string_dec(decrypt))
-system('clear')
+if __name__ == '__main__':
 
-while True:
-    Sure = input("Press 'Y' to continue or 'N' to Exit:->  \n")
+    system('clear')
 
-    if Sure == 'N' or Sure == 'n':
-        system('clear')
-        print("Exiting on user command")
-        sys.exit(0)
+    while True:
+        Sure = input("Press 'Y' to continue or 'N' to Exit:->  \n")
 
-    Input = input("Provide the Letters or Sentences to Decrypt or type 'decrypt' to take default value:-> ")
+        if Sure == 'N' or Sure == 'n':
+            system('clear')
+            print("Exiting on user command")
+            sys.exit(0)
 
-    if Input == 'decrypt' or Input == 'DECRYPT' or Input == 'Decrypt':
-        system('clear')
-        print(string_dec(decrypt))
-    elif Input:
-        system('clear')
-        print(string_dec(Input.upper()))
-    else:
-        system('clear')
-        print("Noting Provided, Try Again\n")
+        Input = input("Provide the Letters or Sentences to Decrypt or type 'decrypt' to take default value:-> ")
+
+        if Input == 'decrypt' or Input == 'DECRYPT' or Input == 'Decrypt':
+            system('clear')
+            print(string_dec(decrypt))
+        elif Input:
+            system('clear')
+            print(string_dec(Input.upper()))
+        else:
+            system('clear')
+            print("Noting Provided, Try Again\n")
