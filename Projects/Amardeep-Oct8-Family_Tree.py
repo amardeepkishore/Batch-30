@@ -9,10 +9,11 @@ __author__ = 'akishore'
 # Importing Module
 import sys
 import re
+import pprint
 from os import system
-#ftree = {'anna':['a1','a2'], 'lazy':['b1','b2'], 'a1':['x1','x2'], 'x1':['z1','z2']}
-ftree = {}
-
+ftree = {'anna':['a1','a2'], 'lazy':['b1','b2'], 'a1':['x1','x2'], 'x1':['z1','z2']}
+#ftree = {}
+pp = pprint.PrettyPrinter(indent=4, width=80,depth=None)
 first = ''
 second = ''
 
@@ -23,11 +24,16 @@ def systm_exit():
 
 
 def mem_tree():
-    for i, j in ftree.iteritems():
-        print(i)
-        print('.'*len(i) + "|__ {}".format(j[0]))
-        print('.'*len(i) + "|__ {}\n".format(j[1]))
-
+    uchoice = raw_input("Do you want to display Tree in Unix style 'Y' or 'N': ")
+    if re.match('^yes$|^y$',uchoice,re.I):
+        for i, j in ftree.iteritems():
+            print(i)
+            print('.'*len(i) + "|__ {}".format(j[0]))
+            print('.'*len(i) + "|__ {}\n".format(j[1]))
+    elif re.match('^no$|^n$',uchoice,re.I):
+        pp.pprint(ftree)
+    else:
+        print("Provide a valid Input.\n")
 
 def mem_add():
     keyorvalue = raw_input("If you want to add {} as a Mother type '1' and to add {} as a Daughter of other Mother\'s type '2'.: ".format(first.upper(),first.upper()))
